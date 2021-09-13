@@ -24,6 +24,7 @@ namespace Modul4HW6
             using (var db = new ApplicationContext(dbContext.Options))
             {
                 /*
+                // task1
                 var query1 = db.ArtistsSongs
                .Include(x => x.Songs)
                     .ThenInclude(x => x.Genres)
@@ -35,6 +36,9 @@ namespace Modul4HW6
                    Genre = x.Songs.Genres.Title
                });
                 */
+
+                /*
+                // task2
                 var query2 = db.Songs
                     .Include(x => x.Genres)
                     .GroupBy(x => x.Genres.Title)
@@ -44,13 +48,29 @@ namespace Modul4HW6
                         Count = x.Count()
                     })
                     .ToList();
+                */
+                var artist = db.Artists
+                    .OrderByDescending(x => x.DateOfBirth)
+                    .First();
 
+                var song = db.Songs
+                    .Where(x => x.ReleasedData < artist.DateOfBirth);
+
+                foreach (var item in song)
+                {
+                    Console.WriteLine($"{item.Title}");
+                }
+
+                /*
+                // task2
                 foreach (var item in query2)
                 {
                     Console.WriteLine($"{item.Genres}: {item.Count}");
                 }
+                */
 
                 /*
+                // task1
                 foreach (var item in query1)
                 {
                     Console.WriteLine($"{item.ArtistName}, {item.Genre}, {item.SongName}");
