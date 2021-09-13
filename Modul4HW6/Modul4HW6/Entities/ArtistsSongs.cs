@@ -13,7 +13,7 @@ namespace Modul4HW6.Entities
         public virtual int SongsId { get; set; }
         public virtual Songs Songs { get; set; }
 
-        public virtual int ArtistsId { get; set; }
+        public virtual int? ArtistsId { get; set; }
         public virtual Artists Artists { get; set; }
     }
 }

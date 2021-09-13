@@ -23,6 +23,7 @@ namespace Modul4HW6
 
             using (var db = new ApplicationContext(dbContext.Options))
             {
+                /*
                 var query1 = db.ArtistsSongs
                .Include(x => x.Songs)
                     .ThenInclude(x => x.Genres)
@@ -33,11 +34,28 @@ namespace Modul4HW6
                    ArtistName = x.Artists.Name,
                    Genre = x.Songs.Genres.Title
                });
+                */
+                var query2 = db.Songs
+                    .Include(x => x.Genres)
+                    .GroupBy(x => x.Genres.Title)
+                    .Select(x => new
+                    {
+                        Genres = x.Key,
+                        Count = x.Count()
+                    })
+                    .ToList();
 
+                foreach (var item in query2)
+                {
+                    Console.WriteLine($"{item.Genres}: {item.Count}");
+                }
+
+                /*
                 foreach (var item in query1)
                 {
                     Console.WriteLine($"{item.ArtistName}, {item.Genre}, {item.SongName}");
                 }
+                */
             }
 
             Console.WriteLine("End");

@@ -33,7 +33,7 @@ namespace Modul4HW6.DataAccess.Configurations
                 new ArtistsSongs()
                 {
                     ArtistsSongsId = 2,
-                    ArtistsId = 1,
+                    ArtistsId = 2,
                     SongsId = 2
                 },
                 new ArtistsSongs()
@@ -51,7 +51,7 @@ namespace Modul4HW6.DataAccess.Configurations
                 new ArtistsSongs()
                 {
                     ArtistsSongsId = 5,
-                    ArtistsId = 3,
+                    ArtistsId = 2,
                     SongsId = 1
                 },
                 new ArtistsSongs()
