@@ -15,7 +15,33 @@ namespace Modul4HW6.DataAccess.Configurations
         {
             builder.ToTable("Genres").HasKey(p => p.GenresId);
             builder.Property(p => p.GenresId).HasColumnName("Id").IsRequired();
-            builder.Property(p => p.Title).HasColumnName("Id").HasMaxLength(50).IsRequired();
+            builder.Property(p => p.Title).HasColumnName("Title").HasMaxLength(50).IsRequired();
+            builder.HasData(
+                new Genres()
+                {
+                    GenresId = 1,
+                    Title = "Rok"
+                },
+                new Genres()
+                {
+                    GenresId = 2,
+                    Title = "Rap"
+                },
+                new Genres()
+                {
+                    GenresId = 3,
+                    Title = "Pop"
+                },
+                new Genres()
+                {
+                    GenresId = 4,
+                    Title = "Classic"
+                },
+                new Genres()
+                {
+                    GenresId = 5,
+                    Title = "jas"
+                });
         }
     }
 }

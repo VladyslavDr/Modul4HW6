@@ -16,10 +16,10 @@ namespace Modul4HW6.DataAccess
         {
         }
 
-        public DbSet<Artists> Employers { get; set; }
-        public DbSet<ArtistsSongs> EmployeeProjects { get; set; }
-        public DbSet<Songs> Offices { get; set; }
-        public DbSet<Genres> Titles { get; set; }
+        public DbSet<Artists> Artists { get; set; }
+        public DbSet<ArtistsSongs> ArtistsSongs { get; set; }
+        public DbSet<Songs> Songs { get; set; }
+        public DbSet<Genres> Genres { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

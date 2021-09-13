@@ -10,7 +10,7 @@ namespace Modul4HW6.Entities
     {
         public virtual int SongsId { get; set; }
         public virtual string Title { get; set; }
-        public virtual DateTime Duration { get; set; }
+        public virtual decimal Duration { get; set; }
         public virtual DateTime ReleasedData { get; set; }
         public virtual int GenresId { get; set; }
         public virtual Genres Genres { get; set; }
