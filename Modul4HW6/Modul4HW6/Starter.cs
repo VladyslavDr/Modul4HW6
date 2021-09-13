@@ -23,6 +23,21 @@ namespace Modul4HW6
 
             using (var db = new ApplicationContext(dbContext.Options))
             {
+                var query1 = db.ArtistsSongs
+               .Include(x => x.Songs)
+                    .ThenInclude(x => x.Genres)
+               .Include(x => x.Artists)
+               .Select(x => new
+               {
+                   SongName = x.Songs.Title,
+                   ArtistName = x.Artists.Name,
+                   Genre = x.Songs.Genres.Title
+               });
+
+                foreach (var item in query1)
+                {
+                    Console.WriteLine($"{item.ArtistName}, {item.Genre}, {item.SongName}");
+                }
             }
 
             Console.WriteLine("End");
